@@ -1,0 +1,791 @@
+{
+  "data_path": "material_claims.csv",
+  "meta": {
+    "rows_raw": 1263,
+    "rows_after_dedup": 1203,
+    "duplicated_claim_ids": 60,
+    "rows_dropped_no_label": 46,
+    "rows_valid": 1157
+  },
+  "diagnosis": {
+    "overall_fulfill_rate": 0.8824546240276577,
+    "feature_summary": {
+      "stock_qty": {
+        "fulfilled_median": 15.0,
+        "unfulfilled_median": 11.0,
+        "fulfilled_mean": 14.958863858961802,
+        "unfulfilled_mean": 11.992647058823529
+      },
+      "day_orders": {
+        "fulfilled_median": 52.0,
+        "unfulfilled_median": 55.0,
+        "fulfilled_mean": 51.57688540646425,
+        "unfulfilled_mean": 55.161764705882355
+      },
+      "sync_lag_min": {
+        "fulfilled_median": 9.0,
+        "unfulfilled_median": 29.0,
+        "fulfilled_mean": 13.812928501469148,
+        "unfulfilled_mean": 31.389705882352942
+      }
+    },
+    "by_warehouse": {
+      "华东中心仓": {
+        "mean": 0.9204,
+        "count": 289
+      },
+      "华北重工仓": {
+        "mean": 0.8514,
+        "count": 276
+      },
+      "华南综合仓": {
+        "mean": 0.8801,
+        "count": 292
+      },
+      "西南基地仓": {
+        "mean": 0.8767,
+        "count": 300
+      }
+    },
+    "by_material": {
+      "承插法兰盘": {
+        "mean": 0.9174,
+        "count": 121
+      },
+      "气动调节阀": {
+        "mean": 0.8214,
+        "count": 112
+      },
+      "特种截止阀": {
+        "mean": 0.8403,
+        "count": 119
+      },
+      "硅酸铝绝缘管": {
+        "mean": 0.8454,
+        "count": 97
+      },
+      "结构工字钢": {
+        "mean": 0.8919,
+        "count": 111
+      },
+      "耐酸耐火砖": {
+        "mean": 0.8881,
+        "count": 134
+      },
+      "镀锌电缆桥架": {
+        "mean": 0.9328,
+        "count": 119
+      },
+      "防腐环氧漆": {
+        "mean": 0.9189,
+        "count": 111
+      },
+      "高压无缝管": {
+        "mean": 0.8584,
+        "count": 113
+      },
+      "高强紧固螺栓": {
+        "mean": 0.9,
+        "count": 120
+      }
+    },
+    "unfulfilled_count": 136,
+    "fulfilled_count": 1021,
+    "baseline_empty_run_cost_hours": 12240
+  },
+  "cost_model": {
+    "empty_run_hours": 90,
+    "block_hours": 15
+  },
+  "best_rule": {
+    "name": "sync_lag_min >= 14",
+    "n_flagged": 326,
+    "flag_rate": 0.2818,
+    "hits_true_unfulfilled": 105,
+    "false_blocks": 221,
+    "precision": 0.3221,
+    "recall": 0.7721,
+    "net_saved_hours": 4560,
+    "threshold_min": 14
+  },
+  "lag_threshold_scan": [
+    {
+      "threshold_min": 0,
+      "n_flagged": 1157,
+      "flag_rate": 1.0,
+      "hits_true_unfulfilled": 136,
+      "false_blocks": 1021,
+      "precision": 0.1175,
+      "recall": 1.0,
+      "net_saved_hours": -5115
+    },
+    {
+      "threshold_min": 1,
+      "n_flagged": 1101,
+      "flag_rate": 0.9516,
+      "hits_true_unfulfilled": 132,
+      "false_blocks": 969,
+      "precision": 0.1199,
+      "recall": 0.9706,
+      "net_saved_hours": -4635
+    },
+    {
+      "threshold_min": 2,
+      "n_flagged": 1036,
+      "flag_rate": 0.8954,
+      "hits_true_unfulfilled": 132,
+      "false_blocks": 904,
+      "precision": 0.1274,
+      "recall": 0.9706,
+      "net_saved_hours": -3660
+    },
+    {
+      "threshold_min": 3,
+      "n_flagged": 971,
+      "flag_rate": 0.8392,
+      "hits_true_unfulfilled": 129,
+      "false_blocks": 842,
+      "precision": 0.1329,
+      "recall": 0.9485,
+      "net_saved_hours": -2955
+    },
+    {
+      "threshold_min": 4,
+      "n_flagged": 921,
+      "flag_rate": 0.796,
+      "hits_true_unfulfilled": 127,
+      "false_blocks": 794,
+      "precision": 0.1379,
+      "recall": 0.9338,
+      "net_saved_hours": -2385
+    },
+    {
+      "threshold_min": 5,
+      "n_flagged": 870,
+      "flag_rate": 0.7519,
+      "hits_true_unfulfilled": 125,
+      "false_blocks": 745,
+      "precision": 0.1437,
+      "recall": 0.9191,
+      "net_saved_hours": -1800
+    },
+    {
+      "threshold_min": 6,
+      "n_flagged": 815,
+      "flag_rate": 0.7044,
+      "hits_true_unfulfilled": 124,
+      "false_blocks": 691,
+      "precision": 0.1521,
+      "recall": 0.9118,
+      "net_saved_hours": -1065
+    },
+    {
+      "threshold_min": 7,
+      "n_flagged": 755,
+      "flag_rate": 0.6525,
+      "hits_true_unfulfilled": 115,
+      "false_blocks": 640,
+      "precision": 0.1523,
+      "recall": 0.8456,
+      "net_saved_hours": -975
+    },
+    {
+      "threshold_min": 8,
+      "n_flagged": 706,
+      "flag_rate": 0.6102,
+      "hits_true_unfulfilled": 114,
+      "false_blocks": 592,
+      "precision": 0.1615,
+      "recall": 0.8382,
+      "net_saved_hours": -330
+    },
+    {
+      "threshold_min": 9,
+      "n_flagged": 637,
+      "flag_rate": 0.5506,
+      "hits_true_unfulfilled": 112,
+      "false_blocks": 525,
+      "precision": 0.1758,
+      "recall": 0.8235,
+      "net_saved_hours": 525
+    },
+    {
+      "threshold_min": 10,
+      "n_flagged": 574,
+      "flag_rate": 0.4961,
+      "hits_true_unfulfilled": 110,
+      "false_blocks": 464,
+      "precision": 0.1916,
+      "recall": 0.8088,
+      "net_saved_hours": 1290
+    },
+    {
+      "threshold_min": 11,
+      "n_flagged": 506,
+      "flag_rate": 0.4373,
+      "hits_true_unfulfilled": 109,
+      "false_blocks": 397,
+      "precision": 0.2154,
+      "recall": 0.8015,
+      "net_saved_hours": 2220
+    },
+    {
+      "threshold_min": 12,
+      "n_flagged": 455,
+      "flag_rate": 0.3933,
+      "hits_true_unfulfilled": 109,
+      "false_blocks": 346,
+      "precision": 0.2396,
+      "recall": 0.8015,
+      "net_saved_hours": 2985
+    },
+    {
+      "threshold_min": 13,
+      "n_flagged": 391,
+      "flag_rate": 0.3379,
+      "hits_true_unfulfilled": 107,
+      "false_blocks": 284,
+      "precision": 0.2737,
+      "recall": 0.7868,
+      "net_saved_hours": 3765
+    },
+    {
+      "threshold_min": 14,
+      "n_flagged": 326,
+      "flag_rate": 0.2818,
+      "hits_true_unfulfilled": 105,
+      "false_blocks": 221,
+      "precision": 0.3221,
+      "recall": 0.7721,
+      "net_saved_hours": 4560
+    },
+    {
+      "threshold_min": 15,
+      "n_flagged": 326,
+      "flag_rate": 0.2818,
+      "hits_true_unfulfilled": 105,
+      "false_blocks": 221,
+      "precision": 0.3221,
+      "recall": 0.7721,
+      "net_saved_hours": 4560
+    },
+    {
+      "threshold_min": 16,
+      "n_flagged": 326,
+      "flag_rate": 0.2818,
+      "hits_true_unfulfilled": 105,
+      "false_blocks": 221,
+      "precision": 0.3221,
+      "recall": 0.7721,
+      "net_saved_hours": 4560
+    },
+    {
+      "threshold_min": 17,
+      "n_flagged": 326,
+      "flag_rate": 0.2818,
+      "hits_true_unfulfilled": 105,
+      "false_blocks": 221,
+      "precision": 0.3221,
+      "recall": 0.7721,
+      "net_saved_hours": 4560
+    },
+    {
+      "threshold_min": 18,
+      "n_flagged": 316,
+      "flag_rate": 0.2731,
+      "hits_true_unfulfilled": 102,
+      "false_blocks": 214,
+      "precision": 0.3228,
+      "recall": 0.75,
+      "net_saved_hours": 4440
+    },
+    {
+      "threshold_min": 19,
+      "n_flagged": 307,
+      "flag_rate": 0.2653,
+      "hits_true_unfulfilled": 99,
+      "false_blocks": 208,
+      "precision": 0.3225,
+      "recall": 0.7279,
+      "net_saved_hours": 4305
+    },
+    {
+      "threshold_min": 20,
+      "n_flagged": 301,
+      "flag_rate": 0.2602,
+      "hits_true_unfulfilled": 99,
+      "false_blocks": 202,
+      "precision": 0.3289,
+      "recall": 0.7279,
+      "net_saved_hours": 4395
+    },
+    {
+      "threshold_min": 21,
+      "n_flagged": 291,
+      "flag_rate": 0.2515,
+      "hits_true_unfulfilled": 96,
+      "false_blocks": 195,
+      "precision": 0.3299,
+      "recall": 0.7059,
+      "net_saved_hours": 4275
+    },
+    {
+      "threshold_min": 22,
+      "n_flagged": 283,
+      "flag_rate": 0.2446,
+      "hits_true_unfulfilled": 91,
+      "false_blocks": 192,
+      "precision": 0.3216,
+      "recall": 0.6691,
+      "net_saved_hours": 3945
+    },
+    {
+      "threshold_min": 23,
+      "n_flagged": 273,
+      "flag_rate": 0.236,
+      "hits_true_unfulfilled": 86,
+      "false_blocks": 187,
+      "precision": 0.315,
+      "recall": 0.6324,
+      "net_saved_hours": 3645
+    },
+    {
+      "threshold_min": 24,
+      "n_flagged": 266,
+      "flag_rate": 0.2299,
+      "hits_true_unfulfilled": 85,
+      "false_blocks": 181,
+      "precision": 0.3195,
+      "recall": 0.625,
+      "net_saved_hours": 3660
+    },
+    {
+      "threshold_min": 25,
+      "n_flagged": 259,
+      "flag_rate": 0.2239,
+      "hits_true_unfulfilled": 83,
+      "false_blocks": 176,
+      "precision": 0.3205,
+      "recall": 0.6103,
+      "net_saved_hours": 3585
+    },
+    {
+      "threshold_min": 26,
+      "n_flagged": 254,
+      "flag_rate": 0.2195,
+      "hits_true_unfulfilled": 79,
+      "false_blocks": 175,
+      "precision": 0.311,
+      "recall": 0.5809,
+      "net_saved_hours": 3300
+    },
+    {
+      "threshold_min": 27,
+      "n_flagged": 247,
+      "flag_rate": 0.2135,
+      "hits_true_unfulfilled": 76,
+      "false_blocks": 171,
+      "precision": 0.3077,
+      "recall": 0.5588,
+      "net_saved_hours": 3135
+    },
+    {
+      "threshold_min": 28,
+      "n_flagged": 243,
+      "flag_rate": 0.21,
+      "hits_true_unfulfilled": 75,
+      "false_blocks": 168,
+      "precision": 0.3086,
+      "recall": 0.5515,
+      "net_saved_hours": 3105
+    },
+    {
+      "threshold_min": 29,
+      "n_flagged": 233,
+      "flag_rate": 0.2014,
+      "hits_true_unfulfilled": 69,
+      "false_blocks": 164,
+      "precision": 0.2961,
+      "recall": 0.5074,
+      "net_saved_hours": 2715
+    },
+    {
+      "threshold_min": 30,
+      "n_flagged": 224,
+      "flag_rate": 0.1936,
+      "hits_true_unfulfilled": 66,
+      "false_blocks": 158,
+      "precision": 0.2946,
+      "recall": 0.4853,
+      "net_saved_hours": 2580
+    },
+    {
+      "threshold_min": 31,
+      "n_flagged": 219,
+      "flag_rate": 0.1893,
+      "hits_true_unfulfilled": 64,
+      "false_blocks": 155,
+      "precision": 0.2922,
+      "recall": 0.4706,
+      "net_saved_hours": 2475
+    },
+    {
+      "threshold_min": 32,
+      "n_flagged": 212,
+      "flag_rate": 0.1832,
+      "hits_true_unfulfilled": 62,
+      "false_blocks": 150,
+      "precision": 0.2925,
+      "recall": 0.4559,
+      "net_saved_hours": 2400
+    },
+    {
+      "threshold_min": 33,
+      "n_flagged": 204,
+      "flag_rate": 0.1763,
+      "hits_true_unfulfilled": 59,
+      "false_blocks": 145,
+      "precision": 0.2892,
+      "recall": 0.4338,
+      "net_saved_hours": 2250
+    },
+    {
+      "threshold_min": 34,
+      "n_flagged": 198,
+      "flag_rate": 0.1711,
+      "hits_true_unfulfilled": 57,
+      "false_blocks": 141,
+      "precision": 0.2879,
+      "recall": 0.4191,
+      "net_saved_hours": 2160
+    },
+    {
+      "threshold_min": 35,
+      "n_flagged": 194,
+      "flag_rate": 0.1677,
+      "hits_true_unfulfilled": 56,
+      "false_blocks": 138,
+      "precision": 0.2887,
+      "recall": 0.4118,
+      "net_saved_hours": 2130
+    },
+    {
+      "threshold_min": 36,
+      "n_flagged": 187,
+      "flag_rate": 0.1616,
+      "hits_true_unfulfilled": 55,
+      "false_blocks": 132,
+      "precision": 0.2941,
+      "recall": 0.4044,
+      "net_saved_hours": 2145
+    },
+    {
+      "threshold_min": 37,
+      "n_flagged": 181,
+      "flag_rate": 0.1564,
+      "hits_true_unfulfilled": 55,
+      "false_blocks": 126,
+      "precision": 0.3039,
+      "recall": 0.4044,
+      "net_saved_hours": 2235
+    },
+    {
+      "threshold_min": 38,
+      "n_flagged": 178,
+      "flag_rate": 0.1538,
+      "hits_true_unfulfilled": 55,
+      "false_blocks": 123,
+      "precision": 0.309,
+      "recall": 0.4044,
+      "net_saved_hours": 2280
+    },
+    {
+      "threshold_min": 39,
+      "n_flagged": 168,
+      "flag_rate": 0.1452,
+      "hits_true_unfulfilled": 55,
+      "false_blocks": 113,
+      "precision": 0.3274,
+      "recall": 0.4044,
+      "net_saved_hours": 2430
+    },
+    {
+      "threshold_min": 40,
+      "n_flagged": 162,
+      "flag_rate": 0.14,
+      "hits_true_unfulfilled": 53,
+      "false_blocks": 109,
+      "precision": 0.3272,
+      "recall": 0.3897,
+      "net_saved_hours": 2340
+    },
+    {
+      "threshold_min": 41,
+      "n_flagged": 159,
+      "flag_rate": 0.1374,
+      "hits_true_unfulfilled": 52,
+      "false_blocks": 107,
+      "precision": 0.327,
+      "recall": 0.3824,
+      "net_saved_hours": 2295
+    },
+    {
+      "threshold_min": 42,
+      "n_flagged": 148,
+      "flag_rate": 0.1279,
+      "hits_true_unfulfilled": 47,
+      "false_blocks": 101,
+      "precision": 0.3176,
+      "recall": 0.3456,
+      "net_saved_hours": 2010
+    },
+    {
+      "threshold_min": 43,
+      "n_flagged": 140,
+      "flag_rate": 0.121,
+      "hits_true_unfulfilled": 43,
+      "false_blocks": 97,
+      "precision": 0.3071,
+      "recall": 0.3162,
+      "net_saved_hours": 1770
+    },
+    {
+      "threshold_min": 44,
+      "n_flagged": 131,
+      "flag_rate": 0.1132,
+      "hits_true_unfulfilled": 38,
+      "false_blocks": 93,
+      "precision": 0.2901,
+      "recall": 0.2794,
+      "net_saved_hours": 1455
+    },
+    {
+      "threshold_min": 45,
+      "n_flagged": 126,
+      "flag_rate": 0.1089,
+      "hits_true_unfulfilled": 38,
+      "false_blocks": 88,
+      "precision": 0.3016,
+      "recall": 0.2794,
+      "net_saved_hours": 1530
+    },
+    {
+      "threshold_min": 46,
+      "n_flagged": 120,
+      "flag_rate": 0.1037,
+      "hits_true_unfulfilled": 37,
+      "false_blocks": 83,
+      "precision": 0.3083,
+      "recall": 0.2721,
+      "net_saved_hours": 1530
+    },
+    {
+      "threshold_min": 47,
+      "n_flagged": 116,
+      "flag_rate": 0.1003,
+      "hits_true_unfulfilled": 36,
+      "false_blocks": 80,
+      "precision": 0.3103,
+      "recall": 0.2647,
+      "net_saved_hours": 1500
+    },
+    {
+      "threshold_min": 48,
+      "n_flagged": 106,
+      "flag_rate": 0.0916,
+      "hits_true_unfulfilled": 35,
+      "false_blocks": 71,
+      "precision": 0.3302,
+      "recall": 0.2574,
+      "net_saved_hours": 1560
+    },
+    {
+      "threshold_min": 49,
+      "n_flagged": 98,
+      "flag_rate": 0.0847,
+      "hits_true_unfulfilled": 30,
+      "false_blocks": 68,
+      "precision": 0.3061,
+      "recall": 0.2206,
+      "net_saved_hours": 1230
+    },
+    {
+      "threshold_min": 50,
+      "n_flagged": 88,
+      "flag_rate": 0.0761,
+      "hits_true_unfulfilled": 27,
+      "false_blocks": 61,
+      "precision": 0.3068,
+      "recall": 0.1985,
+      "net_saved_hours": 1110
+    },
+    {
+      "threshold_min": 51,
+      "n_flagged": 82,
+      "flag_rate": 0.0709,
+      "hits_true_unfulfilled": 26,
+      "false_blocks": 56,
+      "precision": 0.3171,
+      "recall": 0.1912,
+      "net_saved_hours": 1110
+    },
+    {
+      "threshold_min": 52,
+      "n_flagged": 78,
+      "flag_rate": 0.0674,
+      "hits_true_unfulfilled": 25,
+      "false_blocks": 53,
+      "precision": 0.3205,
+      "recall": 0.1838,
+      "net_saved_hours": 1080
+    },
+    {
+      "threshold_min": 53,
+      "n_flagged": 72,
+      "flag_rate": 0.0622,
+      "hits_true_unfulfilled": 24,
+      "false_blocks": 48,
+      "precision": 0.3333,
+      "recall": 0.1765,
+      "net_saved_hours": 1080
+    },
+    {
+      "threshold_min": 54,
+      "n_flagged": 64,
+      "flag_rate": 0.0553,
+      "hits_true_unfulfilled": 22,
+      "false_blocks": 42,
+      "precision": 0.3438,
+      "recall": 0.1618,
+      "net_saved_hours": 1020
+    },
+    {
+      "threshold_min": 55,
+      "n_flagged": 58,
+      "flag_rate": 0.0501,
+      "hits_true_unfulfilled": 21,
+      "false_blocks": 37,
+      "precision": 0.3621,
+      "recall": 0.1544,
+      "net_saved_hours": 1020
+    },
+    {
+      "threshold_min": 56,
+      "n_flagged": 57,
+      "flag_rate": 0.0493,
+      "hits_true_unfulfilled": 21,
+      "false_blocks": 36,
+      "precision": 0.3684,
+      "recall": 0.1544,
+      "net_saved_hours": 1035
+    },
+    {
+      "threshold_min": 57,
+      "n_flagged": 49,
+      "flag_rate": 0.0424,
+      "hits_true_unfulfilled": 19,
+      "false_blocks": 30,
+      "precision": 0.3878,
+      "recall": 0.1397,
+      "net_saved_hours": 975
+    },
+    {
+      "threshold_min": 58,
+      "n_flagged": 45,
+      "flag_rate": 0.0389,
+      "hits_true_unfulfilled": 17,
+      "false_blocks": 28,
+      "precision": 0.3778,
+      "recall": 0.125,
+      "net_saved_hours": 855
+    },
+    {
+      "threshold_min": 59,
+      "n_flagged": 42,
+      "flag_rate": 0.0363,
+      "hits_true_unfulfilled": 16,
+      "false_blocks": 26,
+      "precision": 0.381,
+      "recall": 0.1176,
+      "net_saved_hours": 810
+    },
+    {
+      "threshold_min": 60,
+      "n_flagged": 40,
+      "flag_rate": 0.0346,
+      "hits_true_unfulfilled": 15,
+      "false_blocks": 25,
+      "precision": 0.375,
+      "recall": 0.1103,
+      "net_saved_hours": 750
+    },
+    {
+      "threshold_min": 61,
+      "n_flagged": 33,
+      "flag_rate": 0.0285,
+      "hits_true_unfulfilled": 12,
+      "false_blocks": 21,
+      "precision": 0.3636,
+      "recall": 0.0882,
+      "net_saved_hours": 585
+    },
+    {
+      "threshold_min": 62,
+      "n_flagged": 28,
+      "flag_rate": 0.0242,
+      "hits_true_unfulfilled": 12,
+      "false_blocks": 16,
+      "precision": 0.4286,
+      "recall": 0.0882,
+      "net_saved_hours": 660
+    },
+    {
+      "threshold_min": 63,
+      "n_flagged": 24,
+      "flag_rate": 0.0207,
+      "hits_true_unfulfilled": 8,
+      "false_blocks": 16,
+      "precision": 0.3333,
+      "recall": 0.0588,
+      "net_saved_hours": 360
+    },
+    {
+      "threshold_min": 64,
+      "n_flagged": 17,
+      "flag_rate": 0.0147,
+      "hits_true_unfulfilled": 4,
+      "false_blocks": 13,
+      "precision": 0.2353,
+      "recall": 0.0294,
+      "net_saved_hours": 105
+    },
+    {
+      "threshold_min": 65,
+      "n_flagged": 9,
+      "flag_rate": 0.0078,
+      "hits_true_unfulfilled": 2,
+      "false_blocks": 7,
+      "precision": 0.2222,
+      "recall": 0.0147,
+      "net_saved_hours": 45
+    }
+  ],
+  "time_split_validation": {
+    "train_rows": 809,
+    "test_rows": 348,
+    "train_best_threshold_min": 14,
+    "train_net_saved_hours": 3285,
+    "test_metrics": {
+      "n_flagged": 83,
+      "flag_rate": 0.2385,
+      "hits_true_unfulfilled": 28,
+      "false_blocks": 55,
+      "precision": 0.3373,
+      "recall": 0.7,
+      "net_saved_hours": 1275,
+      "threshold_min": 14,
+      "n_test": 348,
+      "baseline_empty_run_cost_hours": 3600
+    }
+  }
+}
